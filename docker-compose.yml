@@ -1,4 +1,7 @@
-version: '3'
+version: '3.1'
+
+volumes:
+  mongo_data:
 
 services:
   app:
@@ -8,3 +11,16 @@ services:
     - ./app:/app
     ports:
     - "8000:8000"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "pelocho"
+      MONGO_INITDB_ROOT_PASSWORD: "pel8"
+    volumes:
+    - mongo_data:/data/db
+    ports:
+    - "27017:27017"

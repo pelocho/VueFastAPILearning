@@ -1,0 +1,12 @@
+fastapi:
+  debug: true
+
+databases:
+  default:
+    ENGINE: 'mongodb'
+    DRIVER: 'motor'
+    NAME: 'app_db'
+    USER: 'pelocho'
+    PASSWORD: 'pel8'
+    HOST: 'mongo'
+    PORT: '27017'
