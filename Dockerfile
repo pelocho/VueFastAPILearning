@@ -1,4 +1,4 @@
-FROM PYTHON:3.8
+FROM python:3.8
 
 ADD /app /app/
 ADD requirements.txt /app/
