@@ -1,28 +1,23 @@
 from fastapi import FastAPI
+from .products.routes import product_router
+from .config import config
 
 app = FastAPI()
 
 
-@app.get("/products/")
-async def get_all_products():
-    """
-    Get all the products on sale
-    """
-    fake_products = [
-        {
-            'product_name': 'White table',
-            'price': 250,
-            'seller': 'Pepe'
-        },
-        {
-            'product_name': 'Desktop chair',
-            'price': 200,
-            'seller': 'Paco'
-        },
-        {
-            'product_name': '4k Monitor',
-            'price': 300,
-            'seller': 'Manolo'
-        }
-    ]
-    return fake_products
+app.include_router(
+    product_router,
+    prefix='/products',
+    tags=['products'],
+    responses={404: {'description': 'not found'}},
+)
+
+
+@app.on_event('startup')
+async def app_startup():
+    config.load_config()
+
+
+@app.on_event('shutdown')
+async def app_shutdown():
+    config.close_db_client()

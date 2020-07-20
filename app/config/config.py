@@ -7,6 +7,7 @@ def load_config() -> dict:
         conf = yaml.load(yaml_file.read(), Loader=yaml.SafeLoader)
     return conf
 
+
 CONF = load_config()
 
 
