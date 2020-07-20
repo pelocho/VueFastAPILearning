@@ -1,5 +1,5 @@
 from bson.objectid import ObjectId
-from ..config.config import DB, CONF
+from config.config import DB, CONF
 from fastapi import APIRouter, Depends, HTTPException
 from typing import List
 import logging
@@ -62,7 +62,7 @@ async def get_product_by_id(id_: ObjectId = Depends(validate_object_id)):
         raise HTTPException(status_code=404, detail="Product not found")
 
 
-@product_router.delete('/{id_}', dependencies=Depends(_get_product_or_404), response_model=dict)
+@product_router.delete('/{id_}', dependencies=[Depends(_get_product_or_404)], response_model=dict)
 async def delete_product_by_id(id_: str):
     product_op = await DB.product.delete_one({'_id': ObjectId(id_)})
     if product_op.deleted_count:

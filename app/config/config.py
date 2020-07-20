@@ -13,7 +13,7 @@ CONF = load_config()
 
 DB_CLIENT = AsyncIOMotorClient(
     host=CONF.get('databases', dict())['default']['HOST'],
-    port=CONF.get('databases', dict())['default']['PORT'],
+    port=int(CONF.get('databases', dict())['default']['PORT']),
     username=CONF.get('databases', dict())['default']['USER'],
     password=CONF.get('databases', dict())['default']['PASSWORD']
 )

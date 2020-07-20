@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from .products.routes import product_router
-from .config import config
+from product.routes import product_router
+from config import config
 
 app = FastAPI()
 
