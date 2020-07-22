@@ -1,6 +1,13 @@
 fastapi:
   debug: true
 
+api:
+  versions:
+    current: v1
+    supported:
+    deprecated:
+    unsupported:
+
 databases:
   default:
     ENGINE: 'mongodb'

@@ -1,0 +1,29 @@
+.nav {
+    background: linear-gradient(to right, rgba(18, 123, 0, 0.9), rgba(34, 169, 80, 0.8));
+}
+
+.white-text-color {
+    color: white;
+}
+
+.flex-container-center {
+    display: flex;
+    justify-content: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+

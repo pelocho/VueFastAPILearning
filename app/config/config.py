@@ -9,6 +9,7 @@ def load_config() -> dict:
 
 
 CONF = load_config()
+API_VERSION = CONF.get("api", {}).get("versions", {}).get("current", 'v1')
 
 
 DB_CLIENT = AsyncIOMotorClient(
