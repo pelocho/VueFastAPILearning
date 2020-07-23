@@ -9,28 +9,29 @@
 <body>
   <nav class="nav navbar-dark bg-primary">
     <div class="col-lg-12 flex-container-center mt-20 mb-20">
-      <h1 class="white-text-color">Products</h1>
+      <h1 class="white-text-color">Segunda Mano</h1>
     </div>
   </nav>
 
-  <div class="row" id="products-region">
+  <div class="row mt-20" id="products-region">
     <div class="card mr-20 ml-20" v-for="product in products">
       <div class="card-header">
-        [[ product.product_name ]]
+        [[ product.name ]]
       </div>
       <div class="card-body">
         <h5 class="card-title">Status: </h5>
-        <p class="card-text">[[ product.product_status ]]</p>
+        <p class="card-text">[[ product.status ]]</p>
         <h5 class="card-title">Price: </h5>
-        <p class="card-text">[[ product.product_price ]]</p>
+        <p class="card-text">[[ product.price ]]</p>
         <h5 class="card-title">Location: </h5>
-        <p class="card-text">[[ product.product_location ]]</p>
+        <p class="card-text">[[ product.location ]]</p>
       </div>
     </div>
   </div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="{{ url_for('static', path='js/home.js') }}"></script>
 </body>
 </html>
