@@ -1,6 +1,4 @@
-from fastapi import FastAPI, Request
-from fastapi.templating import Jinja2Templates
-from fastapi.staticfiles import StaticFiles
+from fastapi import FastAPI
 from product.routes import product_router
 from config import config
 
@@ -18,10 +16,6 @@ app = FastAPI(
     redoc_url=None
 )
 
-templates = Jinja2Templates(directory="templates")
-
-app.mount("/static", StaticFiles(directory="static"), name="static")
-
 app.include_router(
     product_router,
     prefix='/products',
@@ -38,8 +32,3 @@ async def app_startup():
 @app.on_event('shutdown')
 async def app_shutdown():
     config.close_db_client()
-
-
-@app.get('/')
-async def homepage(request: Request):
-    return templates.TemplateResponse('home.html', {'request': request})
