@@ -1,9 +1,9 @@
 <template>
   <div class="col-lg-12">
-    <div class="row mt-20 ml-20">
+    <div class="row mt-20 flex-container-center">
       <router-link :to="{name: 'create-product'}" class="btn btn-success">New Product</router-link>
     </div>
-    <div class="row mt-20 ml-20">
+    <div class="row mt-20 flex-container-center">
       <div class="card mr-20" v-for="product in products" :key="product.id">
         <div class="card-header">
           {{ product.name }}

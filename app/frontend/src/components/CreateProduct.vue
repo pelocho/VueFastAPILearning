@@ -32,7 +32,7 @@
               </select>
             </div>
             <div class="form-group">
-              <input type="submit" class="btn btn-success" value="Create User"/>
+              <input type="submit" class="btn btn-success" value="Create Product"/>
             </div>
           </form>
         </div>
@@ -50,7 +50,12 @@
         },
         methods: {
             CreateProduct(){
-
+                let url = 'http://localhost:8000/products';
+                this.axios.post(url, this.product)
+                .then(response => {
+                    console.log(response.data);
+                    this.$router.replace({name: 'home'})
+                })
             }
         }
     }
