@@ -5,7 +5,6 @@ import axios from 'axios'
 import NProgress from 'nprogress'
 
 import Home from './components/products.vue'
-import App from './home'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import '../public/common.css'
@@ -37,6 +36,6 @@ router.afterEach(() => {
 });
 
 new Vue({
-    render: h => h(App),
+    render: h => h(Home),
     router
 }).$mount('#products-region');

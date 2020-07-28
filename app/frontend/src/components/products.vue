@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="row mt-20 ml-20">
     <div class="card mr-20 ml-20" v-for="product in products" :key="product.id">
       <div class="card-header">
         {{ product.name }}
@@ -28,7 +28,7 @@
         },
         methods: {
             getProducts() {
-                this.axios.get('/products')
+                this.axios.get('http://localhost:8000/products')
                     .then(response => (this.products = response.data))
             }
         }
