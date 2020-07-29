@@ -6,6 +6,7 @@ import NProgress from 'nprogress'
 
 import Home from './components/Products.vue'
 import CreateProduct from './components/CreateProduct.vue'
+import EditProduct from './components/EditProduct.vue'
 import App from './App.vue'
 
 import 'bootstrap/dist/css/bootstrap.css'
@@ -24,9 +25,14 @@ const routes = [
     },
     {
         name: 'create-product',
-        path: '/product-create',
+        path: '/product/create',
         component: CreateProduct
-    }
+    },
+    {
+        name: 'edit-product',
+        path: '/product/edit/:id',
+        component: EditProduct
+    },
 ];
 
 const router = new VueRouter({mode: 'history', routes: routes});
