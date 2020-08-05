@@ -13,6 +13,8 @@ services:
     - "8000:8000"
     depends_on:
       - mongo
+    stdin_open: true
+    tty: true
 
   mongo:
     image: mongo

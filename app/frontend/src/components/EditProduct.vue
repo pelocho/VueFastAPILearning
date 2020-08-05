@@ -45,8 +45,11 @@
     export default {
         data() {
             return {
-                product: {}
-            }
+                product: []
+            };
+        },
+        created: function () {
+            this.GetProduct();
         },
         methods: {
             EditProduct() {
@@ -56,6 +59,10 @@
                         console.log(response.data);
                         this.$router.replace({name: 'home'})
                     })
+            },
+            GetProduct(){
+                this.axios.get('http://localhost:8000/products/'+ this.$route.params.id)
+                    .then(response => (this.product = response.data))
             }
         }
     }
