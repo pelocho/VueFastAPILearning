@@ -23,6 +23,7 @@ async def _get_product_or_404(id_: str):
     _id = validate_object_id(id_)
     product = await DB.product.find_one({'_id': _id})
     if product:
+        product['id_'] = str(product['_id'])
         return product
     else:
         raise HTTPException(status_code=404, detail="Product not found")
