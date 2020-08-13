@@ -2,6 +2,10 @@
     background: linear-gradient(to right, rgba(18, 123, 0, 0.9), rgba(34, 169, 80, 0.8));
 }
 
+.button-color {
+    background-color: rgb(168, 231, 0);
+}
+
 .white-text-color {
     color: white;
 }
@@ -9,6 +13,18 @@
 .flex-container-center {
     display: flex;
     justify-content: center;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.align-end {
+    align-self: end;
+}
+
+.flex-auto {
+    flex: auto;
 }
 
 .mt-20 {

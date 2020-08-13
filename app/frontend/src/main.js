@@ -4,7 +4,6 @@ import VueAxios from 'vue-axios'
 import axios from 'axios'
 import NProgress from 'nprogress'
 
-import Home from './components/Products.vue'
 import CreateProduct from './components/CreateProduct.vue'
 import EditProduct from './components/EditProduct.vue'
 import App from './App.vue'
@@ -18,11 +17,6 @@ Vue.use(VueAxios, axios);
 Vue.config.productionTip = false;
 
 const routes = [
-    {
-        name: 'home',
-        path: '/',
-        component: Home
-    },
     {
         name: 'create-product',
         path: '/product/create',
