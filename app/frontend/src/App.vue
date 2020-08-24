@@ -3,37 +3,29 @@
     <div class="mt-20 flex-container-center">
       <router-link :to="{name: 'create-product'}" v-on:click.native.prevent="showSidebar" class="btn btn-success">New Product</router-link>
     </div>
-    <div class="mt-20 flex-container ml-20">
-          <div class="card mr-20 align-start" v-for="product in products" :key="product.id_">
-            <div class="card-header">
-              {{ product.name }}
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Status: </h5>
-              <p class="card-text">{{ product.status }}</p>
-              <h5 class="card-title">Price: </h5>
-              <p class="card-text">{{ product.price }}</p>
-              <h5 class="card-title">Location: </h5>
-              <p class="card-text">{{ product.location }}</p>
-              <hr>
-              <router-link :to="{name: 'edit-product', params: {id: product.id_}}" v-on:click.native.prevent="showSidebar" class="btn btn-success">Edit
-                Product
-              </router-link>
-              <button class="btn btn-danger ml-20" v-on:click="deleteProduct(product.id_)">Delete</button>
-            </div>
-        </div>
+      <div v-for="product in products" :key="product.id_" class="flex-container-center mt-20">
+        <router-link class="product-link" :to="{name: 'edit-product', params: {id: product.id_}}" v-on:click.native.prevent="showSidebar">
+          <ProductCard>
+            <h4 slot="name">{{ product.name }}</h4>
+            <h5 slot="status">{{ product.status }}</h5>
+            <h5 slot="price">{{ product.price }}</h5>
+            <h5 slot="location">{{ product.location }}</h5>
+          </ProductCard>
+          <button class="btn btn-danger ml-20" v-on:click="deleteProduct(product.id_)">Delete</button>
+        </router-link>
+      </div>
       <Sidebar v-if="this.showPanel">
         <router-view></router-view>
       </Sidebar>
-    </div>
   </div>
 </template>
 
 <script>
     import Sidebar from './components/Sidebar.vue';
+    import ProductCard from "./components/ProductCard";
 
     export default {
-        components: {Sidebar},
+        components: {ProductCard, Sidebar},
         data() {
             return {
                 products: [],
@@ -65,3 +57,11 @@
         }
     };
 </script>
+
+<style scoped>
+.product-link {
+  color: black;
+  text-decoration: none;
+  font-weight: 100;
+}
+</style>
