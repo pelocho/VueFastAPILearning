@@ -5,8 +5,10 @@
         Product
       </router-link>
     </div>
-    <ProductCard v-for="product in products" :key="product.id_" :product="product" class="flex-container-center mt-20"
-                 @click.native.prevent="showSidebar"></ProductCard>
+    <div class="flex-container">
+      <ProductCard v-for="product in products" :key="product.id_" :product="product" class="mt-20"
+                   @click.native.prevent="showSidebar"></ProductCard>
+    </div>
     <Sidebar v-if="this.$store.state.sidebarOpen">
       <router-view></router-view>
     </Sidebar>

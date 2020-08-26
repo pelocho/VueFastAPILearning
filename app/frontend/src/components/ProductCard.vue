@@ -6,15 +6,15 @@
         <h4>{{ product.name }}</h4>
       </div>
       <div class="row ml-5">
-        <h5 class="mr-20">Status</h5>
+        <h5 class="mr-20">Status:</h5>
         <h5>{{ product.status }}</h5>
       </div>
       <div class="row ml-5">
-        <h5 class="mr-20">Price</h5>
+        <h5 class="mr-20">Price:</h5>
         <h5>{{ product.price }}</h5>
       </div>
       <div class="row ml-5">
-        <h5 class="mr-20">Location</h5>
+        <h5 class="mr-20">Location:</h5>
         <h5>{{ product.location }}</h5>
       </div>
       <button class="btn btn-danger mt-20 ml-5" v-on:click="deleteProduct(product.id_)">Delete</button>
