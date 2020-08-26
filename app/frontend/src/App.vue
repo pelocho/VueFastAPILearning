@@ -5,8 +5,9 @@
         Product
       </router-link>
     </div>
-    <ProductCard v-for="product in products" :key="product.id_" :product="product" class="flex-container-center mt-20" @showEditSidebar="showSidebar"></ProductCard>
-    <Sidebar v-if="this.showPanel">
+    <ProductCard v-for="product in products" :key="product.id_" :product="product" class="flex-container-center mt-20"
+                 @click.native.prevent="showSidebar"></ProductCard>
+    <Sidebar v-if="this.$store.state.sidevarOpen">
       <router-view></router-view>
     </Sidebar>
   </div>
@@ -21,7 +22,6 @@
         data() {
             return {
                 products: [],
-                showPanel: false
             };
         },
         created: function () {
@@ -30,7 +30,7 @@
         watch: {
           '$route': function () {
               this.getProducts();
-              this.showPanel = false;
+              this.$store.state.sidevarOpen = false;
           }
         },
         methods: {
@@ -39,7 +39,7 @@
                     .then(response => (this.products = response.data))
             },
             showSidebar() {
-                this.showPanel =  !this.showPanel
+                this.$store.commit('SHOW_SIDEVAR')
             }
         }
     };

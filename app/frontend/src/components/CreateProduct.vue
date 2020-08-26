@@ -51,6 +51,7 @@
                 })
             },
             GoToHome() {
+                this.$store.commit('SHOW_SIDEVAR');
                 this.$router.push({path: '/'});
             }
         }

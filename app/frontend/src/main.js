@@ -7,6 +7,7 @@ import NProgress from 'nprogress'
 import CreateProduct from './components/CreateProduct.vue'
 import EditProduct from './components/EditProduct.vue'
 import App from './App.vue'
+import store from './store'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import '../public/common.css'
@@ -44,5 +45,6 @@ router.afterEach(() => {
 
 new Vue({
     render: h => h(App),
+    store,
     router
 }).$mount('#products-region');

@@ -53,11 +53,12 @@
                         this.$router.push({path: '/'});
                     })
             },
-            GetProduct(){
-                this.axios.get('http://localhost:8000/products/'+ this.$route.params.id)
+            GetProduct() {
+                this.axios.get('http://localhost:8000/products/' + this.$route.params.id)
                     .then(response => (this.product = response.data))
             },
             GoToHome() {
+                this.$store.commit('SHOW_SIDEVAR');
                 this.$router.push({path: '/'});
             }
         }

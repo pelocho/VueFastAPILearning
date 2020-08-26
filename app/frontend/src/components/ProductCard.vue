@@ -1,6 +1,5 @@
 <template>
-  <router-link class="product-link" :to="{name: 'edit-product', params: {id: product.id_}}"
-               v-on:click.native.prevent="showSidebar">
+  <router-link class="product-link" :to="{name: 'edit-product', params: {id: product.id_}}">
     <div class="product-card shadow">
       <div class="row ml-5">
         <h4 class="mr-20">Name:</h4>
@@ -34,9 +33,6 @@
                 let url = `http://localhost:8000/products/${id}`;
                 this.axios.delete(url)
                     .then(this.$router.go());
-            },
-            showSidebar() {
-                this.$emit('showEditSidebar')
             }
         }
     }
