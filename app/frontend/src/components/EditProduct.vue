@@ -58,7 +58,7 @@
                     .then(response => (this.product = response.data))
             },
             GoToHome() {
-                this.$store.commit('SHOW_SIDEVAR');
+                this.$store.commit('SHOW_SIDEBAR');
                 this.$router.push({path: '/'});
             }
         }

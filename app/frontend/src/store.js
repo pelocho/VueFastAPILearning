@@ -5,11 +5,11 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        sidevarOpen: false,
+        sidebarOpen: false,
     },
     mutations: {
-        SHOW_SIDEVAR(state) {
-            state.sidevarOpen = !state.sidevarOpen
+        SHOW_SIDEBAR(state) {
+            state.sidebarOpen = !state.sidebarOpen
         }
     },
     actions: {},

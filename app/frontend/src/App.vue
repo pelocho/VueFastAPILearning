@@ -7,7 +7,7 @@
     </div>
     <ProductCard v-for="product in products" :key="product.id_" :product="product" class="flex-container-center mt-20"
                  @click.native.prevent="showSidebar"></ProductCard>
-    <Sidebar v-if="this.$store.state.sidevarOpen">
+    <Sidebar v-if="this.$store.state.sidebarOpen">
       <router-view></router-view>
     </Sidebar>
   </div>
@@ -30,7 +30,7 @@
         watch: {
           '$route': function () {
               this.getProducts();
-              this.$store.state.sidevarOpen = false;
+              this.$store.state.sidebarOpen = false;
           }
         },
         methods: {
@@ -39,7 +39,7 @@
                     .then(response => (this.products = response.data))
             },
             showSidebar() {
-                this.$store.commit('SHOW_SIDEVAR')
+                this.$store.commit('SHOW_SIDEBAR')
             }
         }
     };
