@@ -35,10 +35,20 @@
 </template>
 
 <script>
+    import store from "../store";
+
     export default {
         data() {
             return {
                 product: {}
+            }
+        },
+        beforeRouteEnter(routeTo, routeFrom, next) {
+            if (store.state.sidebarOpen === false) {
+                store.commit('SHOW_SIDEBAR');
+                next()
+            } else {
+                next()
             }
         },
         methods: {
